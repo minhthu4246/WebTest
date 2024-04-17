@@ -1,3 +1,4 @@
+// App.js
 import React, { useState } from 'react';
 import './App.css';
 import PhotoUploader from './PhotoUploader';
@@ -10,17 +11,12 @@ function App() {
   const [password, setPassword] = useState('');
   const [uploadedPhotos, setUploadedPhotos] = useState([]);
 
-  const handleLogin = async () => {
-    try {
-      const response = await axios.post('/api/login', { username, password });
-      if (response.data.success) {
-        setIsLoggedIn(true);
-      } else {
-        alert(response.data.message);
-      }
-    } catch (error) {
-      console.error('Error logging in:', error);
-      alert('An error occurred while logging in');
+  const handleLogin = () => {
+    // Simulate login process
+    if (username === 'demo' && password === 'demo') {
+      setIsLoggedIn(true);
+    } else {
+      alert('Invalid username or password');
     }
   };
 
@@ -68,3 +64,4 @@ function App() {
 }
 
 export default App;
+
